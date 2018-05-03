@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+	<project basedir="." default="build-cap-generation" name="ConfigurableApplet">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <property name="bat_file" value="build" />
+
+    <path id="ConfigurableApplet.classpath">
+        <pathelement location="classes"/>
+        <pathelement location="lib/102241_Annex_D.jar"/>
+        <pathelement location="lib/api.jar"/>
+        <pathelement location="lib/31130_Annex_D_V721.jar"/>
+		<pathelement location="lib/usim-api-for-java-card-REL-8.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="classes"/>
+        <copy includeemptydirs="false" todir="classes">
+            <fileset dir="src">
+
+            	<include name="**/MyApplet.java"/> 
+            </fileset>
+        </copy>
+		<!-- match = "//3DES" , "", TODO "//AES" -->
+    	<replaceregexp match="//3DES" replace="" flags="g" byline="true">
+    		<fileset dir="classes" includes = "**/MyApplet.java"/>
+		</replaceregexp>
+    </target>
+    <target name="clean">
+        <delete dir="classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    
+    <target depends="cleanall, init" name="build-cap-generation">
+    	<exec command="${bat_file}/buildCap.bat"/>
+    </target>
+              	
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+</project>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/102241_Annex_D.jar" sourcepath="lib/102241_Annex_D.jar"/>
+	<classpathentry kind="lib" path="lib/31130_Annex_D_V721.jar"/>
+	<classpathentry kind="lib" path="lib/api.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/usim-api-for-java-card-REL-8.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
